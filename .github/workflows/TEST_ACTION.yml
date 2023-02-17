@@ -1,0 +1,20 @@
+name:  Test Github Actions
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Github Actions
+        env:
+          TESTE_SECRET: ${{ secrets.TESTE_SECRET }}
+          TESTE_VARIAVEL: ${{ vars.TESTE_VARIAVEL }}
+
+        run: |
+          echo $TESTE_SECRET
+          echo $TESTE_VARIAVEL
